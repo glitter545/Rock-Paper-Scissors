@@ -5,7 +5,7 @@
 
 
 function getComputerChoice() {
-    let choices = ["Rock", "Paper", "Scissors"];
+    const choices = ["Rock", "Paper", "Scissors"];
     let randomNumber = Math.floor(Math.random()  * 3);
     return choices[randomNumber]; 
 };
@@ -30,9 +30,9 @@ function getComputerChoice() {
     let input  = prompt("Enter 'Rock' , 'Paper' or 'Scissors'");
     let finalInput;
 
-    let rockPattern = /rock/i;
-    let paperPattern = /paper/i;
-    let scissorsPattern = /scissors/i;
+    const rockPattern = /rock/i;
+    const paperPattern = /paper/i;
+    const scissorsPattern = /scissors/i;
 
     if (rockPattern.test(input)) {
         finalInput = "Rock";
@@ -50,6 +50,45 @@ function getComputerChoice() {
     }
 
     return finalInput;
- }; playerSelection();
+ };
+
+//playround
+// takes 2 arguments 
+// creates conditions
+// if theyre the same, draw
+// if one of them wins, declares winner
+
+
+/**Things You Should Know
+
+Rock beats scissors, scissors beat paper, and paper beats rock.
+Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”
+ Use rock, paper, scissors to settle minor decisions or simply play to pass the time.
+**/
+
+function playRound(player,computer) {
+
+    let winner;
+    let result;
+    
+    if (player === "Rock" && computer === "Scissors" || 
+    player === "Scissors" && computer === "Paper" ||
+    player === "Paper" && computer === "Rock") {
+        winner = "Player";
+    } else if (computer === "Rock" && player === "Scissors" || 
+    computer === "Scissors" && player === "Paper" ||
+    computer === "Paper" && player === "Rock") {
+        winner = "Computer";
+    }
+
+    if (winner === "Player") {
+        return result = `You win! ${player} beats ${computer}!`;
+    } else if (winner === "Computer") {
+        return result = `You lose! ${computer} beats ${player}!`;
+    } else {
+        return result = `Its's a draw!`;
+    }
+    return result;
+} ; playRound("Paper" , "Scissors");
 
 
