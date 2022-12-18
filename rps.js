@@ -16,6 +16,7 @@ function getComputerChoice() {
 //function expression getComputerChoice to var computerselection
  let computerSelection = getComputerChoice();
 
+
  //playerSelection
  //1. ask for user input and store it in a variable
  //2. use regular expressions to make the input case insensitive
@@ -81,6 +82,8 @@ function playRound(player,computer) {
         winner = "Computer";
     }
 
+    console.log(player);
+    console.log(computer);
     if (winner === "Player") {
         return result = `You win! ${player} beats ${computer}!`;
     } else if (winner === "Computer") {
@@ -88,7 +91,61 @@ function playRound(player,computer) {
     } else {
         return result = `Its's a draw!`;
     }
+   
     return result;
-} ; playRound("Paper" , "Scissors");
+} ;
 
+//game 
+//play 5 rounds
+// reports the winner or loser
 
+//1. call playround function
+//2. do function expressions as its paramaters
+//3. console.log the results
+//4. for loop
+//5. until i >= 5
+//6. stop the function, returns results
+
+//set counts
+// make a new count variable with an initial value
+// make a variable for computer wins
+// make a variable for player wins
+// increment the count value after each loop
+// when the number reaches the desired amount, stop
+// if player or comp value are greater or lesser, print out winner
+// print out the winner with their scores
+
+function game() {
+
+    let rounds = 0;
+    let computerWins = 0;
+    let playerWins = 0;
+    let finalResult;
+
+    for (let i = 1; i < 6; i++) {
+        let player = playerSelection();
+        let computer = getComputerChoice();
+        rounds +=1;
+        playResult = playRound(player,computer);
+        if (playResult.includes("You win!")) {
+            playerWins += 1;
+        } else if (playResult.includes("You lose!")){
+            computerWins += 1;
+        }
+        console.log("Round " + i);
+        console.log(playerWins + " :",computerWins);
+     }
+     
+     if (computerWins > playerWins) {
+        finalResult = "Computer Wins!"
+     } else if (computerWins < playerWins) {
+        finalResult = "Player WIns!"
+     } else {
+        finalResult = "It's a draw!"
+     }
+
+     console.log("Player Score:" + playerWins );
+     console.log("Computer Score:" + computerWins);
+
+     return finalResult;
+}
