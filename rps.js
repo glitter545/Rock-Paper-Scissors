@@ -115,6 +115,8 @@ function playRound(player,computer) {
 // if player or comp value are greater or lesser, print out winner
 // print out the winner with their scores
 
+//PLAYS 5 ROUNDS
+/** 
 function game() {
 
     let rounds = 0;
@@ -149,3 +151,23 @@ function game() {
 
      return finalResult;
 }
+**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
